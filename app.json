@@ -11,7 +11,7 @@
   "env": {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-scala.git",
     "PLAY_CONF_FILE": "application.prod.conf",
-    "PLAY_APP_SECRET": "changeme",
+    "PLAY_APP_SECRET": "3c2d6f0ee88ed389e9a659ce988f056d01fe45bddc68b363a98a4e80b92ab964",
     "FACEBOOK_CLIENT_ID": "",
     "FACEBOOK_CLIENT_SECRET": "",
     "GOOGLE_CLIENT_ID": "",
