@@ -1,0 +1,22 @@
+.kakuro-field {
+  display: flex;
+  flex-wrap: wrap;
+  width: 640px;
+  margin-top: 10px;
+}
+
+.cell_empty {
+  height: 80px;
+  width: 80px;
+  background-color: red;
+}
+.cell_black {
+  height: 80px;
+  width: 80px;
+  background-color: black;
+}
+.cell_white {
+  height: 80px;
+  width: 80px;
+  background-color: grey;
+}

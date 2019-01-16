@@ -54,6 +54,15 @@ class KakuroController @Inject() (
   def rules = silhouette.SecuredAction.async { implicit request =>
     Future.successful(Ok(views.html.rules(request.identity)))
   }
+  def initGame = silhouette.UnsecuredAction.async { implicit request =>
+    controller.initField;
+    val jsonField = helper.gridToJson(controller.getField).toString();
+    printf("%s", jsonField.toString())
+    Future.successful(Ok(jsonField))
+  }
+  def test = silhouette.UnsecuredAction.async { implicit request =>
+    Future.successful(Ok(views.html.test()))
+  }
 }
 
 class helper() {
