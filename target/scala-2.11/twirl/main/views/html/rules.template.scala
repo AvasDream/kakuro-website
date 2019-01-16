@@ -4,27 +4,28 @@ package views.html
 import play.twirl.api._
 import play.twirl.api.TemplateMagic._
 
-object rules_Scope0 {
-  import models._
-  import controllers._
-  import play.api.i18n._
-  import views.html._
-  import play.api.templates.PlayMagic._
-  import play.api.mvc._
-  import play.api.data._
 
-  class rules extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable, Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template3[models.User, Messages, WebJarAssets, play.twirl.api.HtmlFormat.Appendable] {
+     object rules_Scope0 {
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import play.api.mvc._
+import play.api.data._
 
-    /**/
-    def apply /*1.2*/ (user: models.User)(implicit messages: Messages, webJarAssets: WebJarAssets): play.twirl.api.HtmlFormat.Appendable = {
-      _display_ {
-        {
+class rules extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template3[models.User,Messages,WebJarAssets,play.twirl.api.HtmlFormat.Appendable] {
 
-          Seq[Any](format.raw /*1.78*/ ("""
+  /**/
+  def apply/*1.2*/(user: models.User)(implicit messages: Messages, webJarAssets: WebJarAssets):play.twirl.api.HtmlFormat.Appendable = {
+    _display_ {
+      {
 
-"""), _display_( /*3.2*/ main(Messages("kakuro.rules"), Some(user)) /*3.44*/ {
-            _display_(Seq[Any](format.raw /*3.46*/ ("""
-  """), format.raw /*4.3*/ ("""<link rel="stylesheet" media="screen" href=""""), _display_( /*4.48*/ routes /*4.54*/ .Assets.at("stylesheets/main.css")), format.raw /*4.88*/ ("""">
+
+Seq[Any](format.raw/*1.78*/("""
+
+"""),_display_(/*3.2*/main(Messages("kakuro.rules"), Some(user))/*3.44*/ {_display_(Seq[Any](format.raw/*3.46*/("""
+  """),format.raw/*4.3*/("""<link rel="stylesheet" media="screen" href=""""),_display_(/*4.48*/routes/*4.54*/.Assets.at("stylesheets/main.css")),format.raw/*4.88*/("""">
       <div id="rule">
           <h1>Hier finden Sie die Regeln das Kakuro Spiel</h1>
           <br>
@@ -142,31 +143,32 @@ object rules_Scope0 {
           <a href="#rule"> <aside><h4>Zurück zum Anfang</h4></aside> </a>
           <a href="/"> <aside><h4>Zurück zum Spiel</h4></aside> </a>
       </div>
-""")))
-          }), format.raw /*122.2*/ ("""
+""")))}),format.raw/*122.2*/("""
 """))
-        }
       }
     }
-
-    def render(user: models.User, messages: Messages, webJarAssets: WebJarAssets): play.twirl.api.HtmlFormat.Appendable = apply(user)(messages, webJarAssets)
-
-    def f: ((models.User) => (Messages, WebJarAssets) => play.twirl.api.HtmlFormat.Appendable) = (user) => (messages, webJarAssets) => apply(user)(messages, webJarAssets)
-
-    def ref: this.type = this
-
   }
+
+  def render(user:models.User,messages:Messages,webJarAssets:WebJarAssets): play.twirl.api.HtmlFormat.Appendable = apply(user)(messages,webJarAssets)
+
+  def f:((models.User) => (Messages,WebJarAssets) => play.twirl.api.HtmlFormat.Appendable) = (user) => (messages,webJarAssets) => apply(user)(messages,webJarAssets)
+
+  def ref: this.type = this
+
+}
+
 
 }
 
 /**/
 object rules extends rules_Scope0.rules
-/*
+              /*
                   -- GENERATED --
-                  DATE: Wed Jan 16 16:22:24 CET 2019
-                  SOURCE: C:/Users/Tyrell Wellick/git/play-silhouette-seed/app/views/rules.scala.html
+                  DATE: Wed Jan 16 17:45:11 CET 2019
+                  SOURCE: C:/Users/Tyrell Wellick/git/kakuro-website/app/views/rules.scala.html
                   HASH: f590d72471744fc75984302edf57aa29d345c834
                   MATRIX: 554->1|725->77|755->82|805->124|844->126|874->130|945->175|959->181|1013->215|9734->8905
                   LINES: 20->1|25->1|27->3|27->3|27->3|28->4|28->4|28->4|28->4|146->122
                   -- GENERATED --
               */
+          

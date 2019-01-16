@@ -7,7 +7,7 @@
 		revision="4.0.0-RC1"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20190116163719"/>
+		date="20190116174507"/>
 	<dependencies>
 		<module organisation="com.mohiva" name="play-silhouette-testkit_2.11">
 			<revision name="4.0.0-RC1" status="release" pubdate="20160601194626" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://silhouette.mohiva.com/" extra-info.apiURL="http://api.silhouette.mohiva.com/4.0.0-RC1/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="149">

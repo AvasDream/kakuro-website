@@ -1,6 +1,0 @@
-[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Tyrell Wellick\git\kakuro-website\conf\application.conf,C:\Users\Tyrell Wellick\git\kakuro-website\target\scala-2.11\classes\application.conf)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Tyrell Wellick\git\kakuro-website\conf\application.prod.conf,C:\Users\Tyrell Wellick\git\kakuro-website\target\scala-2.11\classes\application.prod.conf)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Tyrell Wellick\git\kakuro-website\conf\messages,C:\Users\Tyrell Wellick\git\kakuro-website\target\scala-2.11\classes\messages)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Tyrell Wellick\git\kakuro-website\conf\routes,C:\Users\Tyrell Wellick\git\kakuro-website\target\scala-2.11\classes\routes)[0m
-[0m[[0mdebug[0m] [0m	(C:\Users\Tyrell Wellick\git\kakuro-website\conf\silhouette.conf,C:\Users\Tyrell Wellick\git\kakuro-website\target\scala-2.11\classes\silhouette.conf)[0m
