@@ -7,32 +7,31 @@ import com.mohiva.play.silhouette.api.exceptions.ProviderException
 import com.mohiva.play.silhouette.api.repositories.AuthInfoRepository
 import com.mohiva.play.silhouette.impl.providers._
 import models.services.UserService
-import play.api.i18n.{ I18nSupport, Messages }
-import play.api.mvc.{ AbstractController, AnyContent, ControllerComponents, Request }
+import play.api.i18n.{ I18nSupport, Messages, MessagesApi }
+import play.api.libs.concurrent.Execution.Implicits._
+import play.api.mvc.{ Action, Controller }
 import utils.auth.DefaultEnv
 
-import scala.concurrent.{ ExecutionContext, Future }
+import scala.concurrent.Future
 
 /**
  * The social auth controller.
  *
- * @param components             The Play controller components.
- * @param silhouette             The Silhouette stack.
- * @param userService            The user service implementation.
- * @param authInfoRepository     The auth info service implementation.
+ * @param messagesApi The Play messages API.
+ * @param silhouette The Silhouette stack.
+ * @param userService The user service implementation.
+ * @param authInfoRepository The auth info service implementation.
  * @param socialProviderRegistry The social provider registry.
- * @param ex                     The execution context.
+ * @param webJarAssets The webjar assets implementation.
  */
 class SocialAuthController @Inject() (
-  components: ControllerComponents,
+  val messagesApi: MessagesApi,
   silhouette: Silhouette[DefaultEnv],
   userService: UserService,
   authInfoRepository: AuthInfoRepository,
-  socialProviderRegistry: SocialProviderRegistry
-)(
-  implicit
-  ex: ExecutionContext
-) extends AbstractController(components) with I18nSupport with Logger {
+  socialProviderRegistry: SocialProviderRegistry,
+  implicit val webJarAssets: WebJarAssets)
+  extends Controller with I18nSupport with Logger {
 
   /**
    * Authenticates a user against a social provider.
@@ -40,7 +39,7 @@ class SocialAuthController @Inject() (
    * @param provider The ID of the provider to authenticate against.
    * @return The result to display.
    */
-  def authenticate(provider: String) = Action.async { implicit request: Request[AnyContent] =>
+  def authenticate(provider: String) = Action.async { implicit request =>
     (socialProviderRegistry.get[SocialProvider](provider) match {
       case Some(p: SocialProvider with CommonSocialProfileBuilder) =>
         p.authenticate().flatMap {

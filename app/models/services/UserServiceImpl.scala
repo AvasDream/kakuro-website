@@ -7,24 +7,16 @@ import com.mohiva.play.silhouette.api.LoginInfo
 import com.mohiva.play.silhouette.impl.providers.CommonSocialProfile
 import models.User
 import models.daos.UserDAO
+import play.api.libs.concurrent.Execution.Implicits._
 
-import scala.concurrent.{ ExecutionContext, Future }
+import scala.concurrent.Future
 
 /**
  * Handles actions to users.
  *
  * @param userDAO The user DAO implementation.
- * @param ex      The execution context.
  */
-class UserServiceImpl @Inject() (userDAO: UserDAO)(implicit ex: ExecutionContext) extends UserService {
-
-  /**
-   * Retrieves a user that matches the specified ID.
-   *
-   * @param id The ID to retrieve a user.
-   * @return The retrieved user or None if no user could be retrieved for the given ID.
-   */
-  def retrieve(id: UUID) = userDAO.find(id)
+class UserServiceImpl @Inject() (userDAO: UserDAO) extends UserService {
 
   /**
    * Retrieves a user that matches the specified login info.
@@ -68,8 +60,7 @@ class UserServiceImpl @Inject() (userDAO: UserDAO)(implicit ex: ExecutionContext
           lastName = profile.lastName,
           fullName = profile.fullName,
           email = profile.email,
-          avatarURL = profile.avatarURL,
-          activated = true
+          avatarURL = profile.avatarURL
         ))
     }
   }
