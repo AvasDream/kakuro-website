@@ -6,7 +6,7 @@
 GET         /games/kakuro                    controllers.KakuroController.kakuro
 GET         /games/kakuro/rules              controllers.KakuroController.rules
 
-
+GET         /games/snake                     controllers.SnakeController.snake
 
 # API calls
 GET         /api/kakuro/initgame             controllers.KakuroController.initGame
