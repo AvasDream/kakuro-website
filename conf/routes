@@ -14,6 +14,11 @@ GET         /games/kakuro/test               controllers.KakuroController.test
 # API calls
 GET         /api/kakuro/initgame             controllers.KakuroController.initGame
 GET         /api/kakuro/set/:row/:col/:value controllers.KakuroController.setValue(row: Int, col: Int, value: Int)
+GET         /api/kakuro/delete/:row/:col     controllers.KakuroController.deleteValue(row: Int, col: Int)
+GET         /api/kakuro/undo                 controllers.KakuroController.undo
+GET         /api/kakuro/redo                 controllers.KakuroController.redo
+GET         /api/kakuro/save                 controllers.KakuroController.save
+GET         /api/kakuro/load                 controllers.KakuroController.load
 # Home page
 GET         /                                controllers.ApplicationController.index
 GET         /signOut                         controllers.ApplicationController.signOut

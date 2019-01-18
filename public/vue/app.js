@@ -120,6 +120,43 @@ function setValue() {
     })
   }
 }
+function deleteValue() {
+  if (VALUE != null && CELL != null) {
+    fetch(BASEURL+"/api/kakuro/delete/"+CELL.row+"/"+CELL.col)
+    .then(response => response.json())
+    .then((data) => {
+      refreshGrid(data)
+    })
+  }
+}
+function undo() {
+  fetch(BASEURL+"/api/kakuro/undo")
+  .then(response => response.json())
+  .then((data) => {
+    refreshGrid(data)
+  })
+}
+function redo() {
+  fetch(BASEURL+"/api/kakuro/redo")
+  .then(response => response.json())
+  .then((data) => {
+    refreshGrid(data)
+  })
+}
+function save() {
+  fetch(BASEURL+"/api/kakuro/save")
+  .then(response => response.json())
+  .then((data) => {
+    refreshGrid(data)
+  })
+}
+function load() {
+  fetch(BASEURL+"/api/kakuro/load")
+  .then(response => response.json())
+  .then((data) => {
+    refreshGrid(data)
+  })
+}
 /*
 Function to refresh grid after communication with backend
 */
@@ -128,6 +165,9 @@ function refreshGrid(game) {
     var cell = game.grid.cells[i]
     if (cell.cell.type == "1" && cell.cell.value != "0") {
       document.getElementById(cell.row+"."+cell.col).innerHTML = String(cell.cell.value);
+    }
+    if (cell.cell.type == "1" && cell.cell.value == "0") {
+      document.getElementById(cell.row+"."+cell.col).innerHTML = String("");
     }
   }
 }
@@ -169,6 +209,21 @@ document.addEventListener("keyup", function(event) {
     case "9":
       VALUE=9
       setValue()
+      break;
+    case "d":
+      deleteValue()
+      break;
+    case "u":
+      undo()
+      break;
+    case "r":
+      redo()
+      break;
+    case "s":
+      save()
+      break;
+    case "l":
+      load()
       break;
     default:
 
