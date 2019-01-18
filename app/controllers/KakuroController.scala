@@ -47,62 +47,54 @@ class KakuroController @Inject() (
   val helper = new helper;
 
   def kakuro = silhouette.SecuredAction.async { implicit request =>
-    controller.initField
-    var states = helper.getCellType(controller.getField)
-    Future.successful(Ok(views.html.kakuro(request.identity, states)))
+    Future.successful(Ok(views.html.kakuro(request.identity)))
   }
 
   def rules = silhouette.SecuredAction.async { implicit request =>
     Future.successful(Ok(views.html.rules(request.identity)))
   }
 
-  def initGame = silhouette.UnsecuredAction.async { implicit request =>
+  def initGame = silhouette.SecuredAction.async { implicit request =>
     controller.initField;
     val jsonField = helper.gridToJson(controller.getField).toString();
     //printf("%s", jsonField.toString())
     Future.successful(Ok(jsonField))
   }
 
-  def setValue(row: Int, col: Int, value: Int) = silhouette.UnsecuredAction.async { implicit request =>
+  def setValue(row: Int, col: Int, value: Int) = silhouette.SecuredAction.async { implicit request =>
     controller.set(row, col, value)
     val jsonField = helper.gridToJson(controller.getField).toString()
     Future.successful(Ok(jsonField))
   }
 
-  def deleteValue(row: Int, col: Int) = silhouette.UnsecuredAction.async { implicit request =>
+  def deleteValue(row: Int, col: Int) = silhouette.SecuredAction.async { implicit request =>
     controller.clear(row, col)
     val jsonField = helper.gridToJson(controller.getField).toString()
     Future.successful(Ok(jsonField))
   }
 
-  def undo = silhouette.UnsecuredAction.async { implicit request =>
+  def undo = silhouette.SecuredAction.async { implicit request =>
     controller.undo
     val jsonField = helper.gridToJson(controller.getField).toString()
     Future.successful(Ok(jsonField))
   }
 
-  def redo = silhouette.UnsecuredAction.async { implicit request =>
+  def redo = silhouette.SecuredAction.async { implicit request =>
     controller.redo
     val jsonField = helper.gridToJson(controller.getField).toString()
     Future.successful(Ok(jsonField))
   }
 
-  def save = silhouette.UnsecuredAction.async { implicit request =>
+  def save = silhouette.SecuredAction.async { implicit request =>
     controller.save
     val jsonField = helper.gridToJson(controller.getField).toString()
     Future.successful(Ok(jsonField))
   }
 
-  def load = silhouette.UnsecuredAction.async { implicit request =>
+  def load = silhouette.SecuredAction.async { implicit request =>
     controller.load
     val jsonField = helper.gridToJson(controller.getField).toString()
     Future.successful(Ok(jsonField))
-  }
-  /*
-  Replace this with correct function
-  */
-  def test = silhouette.UnsecuredAction.async { implicit request =>
-    Future.successful(Ok(views.html.test()))
   }
 
 }

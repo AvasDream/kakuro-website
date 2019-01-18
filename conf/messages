@@ -1,5 +1,5 @@
-kakuro.rules = Rules for Kakuro
-
+kakuro.rules = Kakuro Rules
+kakuro.title = Kakuro Game
 error.email = Valid email required
 error.required = This field is required
 invalid.credentials = Invalid credentials!

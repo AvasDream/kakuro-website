@@ -216,6 +216,9 @@ document.addEventListener("keyup", function(event) {
     case "u":
       undo()
       break;
+    case "Backspace":
+      undo()
+      break;
     case "r":
       redo()
       break;

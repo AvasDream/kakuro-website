@@ -1,11 +1,30 @@
-@(user: models.User, fieldMap: scala.collection.mutable.Map[String, Int])(implicit messages: Messages, webJarAssets: WebJarAssets)
+@(user: models.User)(implicit messages: Messages, webJarAssets: WebJarAssets)
 
 @main(Messages("home.title"), Some(user)) {
-
   <script src="/assets/vue/vue.js"></script>
   <script src="/assets/vue/app.js"></script>
-  <div class="container" id="app">
-    {{message}}
-    <kakuro-field></kakuro-field>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="container" id="app">
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="well well-lg kakuro-controlls">
+        <h3 class="controll_text">Cotrolls</h3>
+        <hr>
+        <h4 class="controll_text controll_text_header">Set Value:</h4>
+        <p class="controll_text">To set a value, click on the Cell and then press the key of the number you want to insert.</p>
+        <h4 class="controll_text controll_text_header">Delete Value:</h4>
+        <p class="controll_text">To delete a value, click on the Cell and then press "d".</p>
+        <h4 class="controll_text controll_text_header">Undo:</h4>
+        <p class="controll_text">To undo your last move press "u" or Backspace.</p>
+        <h4 class="controll_text controll_text_header">Redo:</h4>
+        <p class="controll_text">To redo your last move press "r"</p>
+        <h4 class="controll_text controll_text_header">Save:</h4>
+        <p class="controll_text">To save the game press "s"</p>
+        <h4 class="controll_text controll_text_header">Load:</h4>
+        <p class="controll_text">To load a previous saved game press "l"</p>
+      </div>
+    </div>
   </div>
 }

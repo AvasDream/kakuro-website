@@ -11,6 +11,21 @@
   margin-top: 10px;
   border: 5px solid black;
 }
+.kakuro-controlls {
+  position: relative;
+  margin-top: 10px;
+  border: 5px solid black;
+  right: 120px;
+  background: black;
+}
+
+.controll_text {
+  color: white;
+}
+
+.controll_text_header {
+  text-decoration: underline;
+}
 
 .cell_empty {
   height: 80px;
