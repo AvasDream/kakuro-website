@@ -63,6 +63,12 @@ class KakuroController @Inject() (
   def test = silhouette.UnsecuredAction.async { implicit request =>
     Future.successful(Ok(views.html.test()))
   }
+
+  def setValue(row: Int, col: Int, value: Int) = silhouette.UnsecuredAction.async { implicit request =>
+    controller.set(row, col, value)
+    val jsonField = helper.gridToJson(controller.getField).toString()
+    Future.successful(Ok(jsonField))
+  }
 }
 
 class helper() {

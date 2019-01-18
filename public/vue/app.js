@@ -1,10 +1,13 @@
 var DEBUG=true
+var POSDEBUG=false
 $(document).ready(function () {
+
   const app = new Vue({
     el: '#app',
     data: function ()  {
         return {
           game: [],
+          value: "1",
         }
     },
     methods: {
@@ -24,11 +27,12 @@ $(document).ready(function () {
             value: event.target.parentElement.childNodes[0].innerText,
           }
         }
-      if(DEBUG) console.log(cell);
+
+        if(POSDEBUG) console.log(cell.row+'.'+cell.col);
+        // Set Backgound Color for clicked Cell
+        ChangeCellBackground(cell);
+        if(DEBUG) console.log(cell);
       },
-      dontDoAnything: function (event) {
-        event.preventDefault();
-      }
     },
     mounted() {
       fetch("http://127.0.0.1:9000/api/kakuro/initgame")
@@ -41,7 +45,8 @@ $(document).ready(function () {
     template:`
 
         <div class="kakuro-field">
-            <div v-for="cell in game" >
+            <div v-for="cell in game" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus." >
 <!-- Empty Cell -->
               <div v-if="cell.cell.type == '0'">
                 <div class="cell_empty" :row="cell.row" :col="cell.col">
@@ -50,8 +55,8 @@ $(document).ready(function () {
 <!-- END -->
 <!-- White Cell -->
               <div v-else-if="cell.cell.type == '1'">
-                <div class="cell_white" v-on:click="cellSelected">
-                  <h3 class="cell_value" :row="cell.row" :col="cell.col" v-on:click="dontDoAnything">
+                <div class="cell_white" :id="'cell_white_'+cell.row+'.'+cell.col" v-on:click="cellSelected">
+                  <h3 class="cell_value" :id="cell.row+'.'+cell.col" :row="cell.row" :col="cell.col" v-on:click="dontDoAnything">
                   </h3>
                 </div>
               </div>
@@ -87,4 +92,21 @@ $(document).ready(function () {
               </div>
     `,
   });
+
+/*
+This Function Takes a Cell as Argument and
+iterates over all cells to change the bg color of the picked one
+*/
+function ChangeCellBackground(cell) {
+  var white_cells = document.getElementsByClassName("cell_white");
+  for (var i = 0; i < white_cells.length; i++) {
+    if (white_cells[i].id == "cell_white_"+cell.row+'.'+cell.col) {
+      white_cells[i].style.background="rgb(133, 173, 173)";
+    } else {
+      white_cells[i].style.background="white";
+    }
+  }
+}
+
+
 });
