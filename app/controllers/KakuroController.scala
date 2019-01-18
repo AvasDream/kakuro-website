@@ -60,6 +60,9 @@ class KakuroController @Inject() (
     printf("%s", jsonField.toString())
     Future.successful(Ok(jsonField))
   }
+  /*
+  Replace this with correct function
+  */
   def test = silhouette.UnsecuredAction.async { implicit request =>
     Future.successful(Ok(views.html.test()))
   }

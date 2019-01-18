@@ -6,13 +6,14 @@
 GET         /games/kakuro                    controllers.KakuroController.kakuro
 GET         /games/kakuro/rules              controllers.KakuroController.rules
 
+
 # Unsecured test site
 GET         /games/kakuro/test               controllers.KakuroController.test
 
 
 # API calls
 GET         /api/kakuro/initgame             controllers.KakuroController.initGame
-
+GET         /api/kakuro/set/:row/:col/:value controllers.KakuroController.setValue(row: Int, col: Int, value: Int)
 # Home page
 GET         /                                controllers.ApplicationController.index
 GET         /signOut                         controllers.ApplicationController.signOut

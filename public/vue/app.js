@@ -1,5 +1,8 @@
 var DEBUG=true
 var POSDEBUG=false
+var VALUE=null
+var CELL=null
+var BASEURL="http://127.0.0.1:9000"
 $(document).ready(function () {
 
   const app = new Vue({
@@ -31,11 +34,13 @@ $(document).ready(function () {
         if(POSDEBUG) console.log(cell.row+'.'+cell.col);
         // Set Backgound Color for clicked Cell
         ChangeCellBackground(cell);
-        if(DEBUG) console.log(cell);
+        //Set global Cell
+        CELL=cell
+
       },
     },
     mounted() {
-      fetch("http://127.0.0.1:9000/api/kakuro/initgame")
+      fetch(BASEURL+"/api/kakuro/initgame")
       .then(response => response.json())
       .then((data) => {
         console.log(data);
@@ -43,7 +48,6 @@ $(document).ready(function () {
       })
     },
     template:`
-
         <div class="kakuro-field">
             <div v-for="cell in game" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
 sagittis lacus vel augue laoreet rutrum faucibus." >
@@ -56,7 +60,7 @@ sagittis lacus vel augue laoreet rutrum faucibus." >
 <!-- White Cell -->
               <div v-else-if="cell.cell.type == '1'">
                 <div class="cell_white" :id="'cell_white_'+cell.row+'.'+cell.col" v-on:click="cellSelected">
-                  <h3 class="cell_value" :id="cell.row+'.'+cell.col" :row="cell.row" :col="cell.col" v-on:click="dontDoAnything">
+                  <h3 class="cell_value" :id="cell.row+'.'+cell.col" :row="cell.row" :col="cell.col">
                   </h3>
                 </div>
               </div>
@@ -107,6 +111,69 @@ function ChangeCellBackground(cell) {
     }
   }
 }
+function setValue() {
+  if (VALUE != null && CELL != null) {
+    fetch(BASEURL+"/api/kakuro/set/"+CELL.row+"/"+CELL.col+"/"+VALUE)
+    .then(response => response.json())
+    .then((data) => {
+      refreshGrid(data)
+    })
+  }
+}
+/*
+Function to refresh grid after communication with backend
+*/
+function refreshGrid(game) {
+  for (var i = 0; i < game.grid.cells.length; i++) {
+    var cell = game.grid.cells[i]
+    if (cell.cell.type == "1" && cell.cell.value != "0") {
+      document.getElementById(cell.row+"."+cell.col).innerHTML = String(cell.cell.value);
+    }
+  }
+}
+document.addEventListener("keyup", function(event) {
+  console.log(event);
+  switch (event.key) {
+    case "1":
+      VALUE=1
+      setValue()
+      break;
+    case "2":
+      VALUE=2
+      setValue()
+      break;
+    case "3":
+      VALUE=3
+      setValue()
+      break;
+    case "4":
+      VALUE=4
+      setValue()
+      break;
+    case "5":
+      VALUE=5
+      setValue()
+      break;
+    case "6":
+      VALUE=6
+      setValue()
+      break;
+    case "7":
+      VALUE=7
+      setValue()
+      break;
+    case "8":
+      VALUE=8
+      setValue()
+      break;
+    case "9":
+      VALUE=9
+      setValue()
+      break;
+    default:
+
+  }
+});
 
 
 });
