@@ -8,7 +8,7 @@ var food;
 var scl = 20;
 
 function setup() {
-  SCREEN_SIZE = createVector(650 , 650);
+  SCREEN_SIZE = createVector(640 , 640);
   var canvas = createCanvas(SCREEN_SIZE.x, SCREEN_SIZE.y);
   canvas.parent("snakeCanvas");
   frameRate(DIFFICULTY);
