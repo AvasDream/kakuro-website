@@ -1,6 +1,6 @@
-@()(implicit messages: Messages, webJarAssets: WebJarAssets)
+@(user: models.User)(implicit messages: Messages, webJarAssets: WebJarAssets)
 
-@main(Messages("snake.title")) {
+@main(Messages("snake.title"), Some(user)) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script> -->
@@ -13,7 +13,12 @@
       <div class="well well-lg kakuro-controlls">
         <h3 class="controll_text">Snake</h3>
         <hr>
-        <p class="controll_text">To load a previous saved game press "l"</p>
+        <p class="controll_text">Use the arrow keys or "w","a","s","d" to navigate.</p>
+        <hr>
+        <div class="snake_setting">
+          <h3 class="controll_text" id="snake_score">Score: 0</h3>
+        </div>
+        <button id="snake_start" type="button" class="btn btn-secondary" onclick="startGame()">Start</button>
       </div>
     </div>
   </div>

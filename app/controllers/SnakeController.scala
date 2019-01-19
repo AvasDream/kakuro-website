@@ -42,8 +42,8 @@ class SnakeController @Inject() (
    * }
    */
 
-  def snake = silhouette.UnsecuredAction.async { implicit request =>
-    Future.successful(Ok(views.html.snake()))
+  def snake = silhouette.SecuredAction.async { implicit request =>
+    Future.successful(Ok(views.html.snake(request.identity)))
   }
 
 }
