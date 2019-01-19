@@ -1,0 +1,4 @@
+[0m[[31merror[0m] [0mC:\Users\Tyrell Wellick\git\kakuro-website\app\views\kakuro.scala.html:4: Expected '}' but found '@'[0m
+[0m[[31merror[0m] [0m  <script src="https://cdn.jsdelivr.net/npm/vue\@2.5.22/dist/vue.js"></script>[0m
+[0m[[31merror[0m] [0m                                                ^[0m
+[0m[[31merror[0m] [0m(compile:[31mtwirlCompileTemplates[0m) Twirl compilation failed[0m
