@@ -32,7 +32,7 @@ function draw() {
     if(snake.eat(food)){
         setFood();
     }
-    fill(255);
+    fill(0, 102, 34);
     rect(food.x, food.y, scl, scl);
   } else {
     background(0);
