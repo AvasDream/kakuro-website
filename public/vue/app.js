@@ -2,7 +2,7 @@ var DEBUG=true
 var POSDEBUG=false
 var VALUE=null
 var CELL=null
-var BASEURL="http://127.0.0.1:9000"
+var BASEURL="https://kakuro.herokuapp.com"
 $(document).ready(function () {
 
   const app = new Vue({

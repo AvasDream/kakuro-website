@@ -11,11 +11,11 @@
   "env": {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-scala.git",
     "PLAY_CONF_FILE": "application.prod.conf",
-    "PLAY_APP_SECRET": "changeme",
+    "PLAY_APP_SECRET": "ba8945269a6b3009146c4a4b3f21fa88b6f4894d9b1875b4a94e017c528acadc73c39696084c73e9c9f752dd3deb1e1452def89e1a10e2d2290d54c84dfaf678",
     "FACEBOOK_CLIENT_ID": "",
     "FACEBOOK_CLIENT_SECRET": "",
-    "GOOGLE_CLIENT_ID": "",
-    "GOOGLE_CLIENT_SECRET": "",
+    "GOOGLE_CLIENT_ID": "238546601449-ta7tc5hvn65d7mvoe38g8jk56sjbkff5.apps.googleusercontent.com",
+    "GOOGLE_CLIENT_SECRET": "lx37rlzlKY9hHXoskLruxlfC",
     "TWITTER_CONSUMER_KEY": "",
     "TWITTER_CONSUMER_SECRET": ""
   }
