@@ -41,12 +41,21 @@ object snake_Scope0 {
         <div class="snake_setting">
           <h3 class="controll_text" id="snake_score">Score: 0</h3>
         </div>
+        <div class="radio">
+          <label style="color: white"><input type="radio" id="l1" value="Level 1" name="optradio" style="color: white" checked>Level 1</label>
+        </div>
+        <div class="radio">
+          <label style="color: white"><input type="radio" id="l2" value="Level 2" class="controll_text" style="color: white" name="optradio">Level 2</label>
+        </div>
+        <div class="radio disabled">
+          <label style="color: white"><input type="radio" id="l3"  value="Level 3" class="controll_text"  name="optradio">Level 3</label>
+        </div>
         <button id="snake_start" type="button" class="btn btn-secondary" onclick="startGame()">Start</button>
       </div>
     </div>
   </div>
 """)))
-          }), format.raw /*25.2*/ ("""
+          }), format.raw /*34.2*/ ("""
 """))
         }
       }
@@ -66,10 +75,10 @@ object snake_Scope0 {
 object snake extends snake_Scope0.snake
 /*
                   -- GENERATED --
-                  DATE: Sat Jan 19 14:08:06 CET 2019
+                  DATE: Mon Jan 21 13:35:24 CET 2019
                   SOURCE: C:/Users/Tyrell Wellick/git/kakuro-website/app/views/snake.scala.html
-                  HASH: 967934d3d45822464381510bb8cf78f2f67ba18f
-                  MATRIX: 554->1|725->77|755->82|804->123|843->125|873->129|1854->1080
-                  LINES: 20->1|25->1|27->3|27->3|27->3|28->4|49->25
+                  HASH: dc3ab2d43627ba6e43e641484a8e21f884c4eb1a
+                  MATRIX: 554->1|725->77|755->82|804->123|843->125|873->129|2439->1665
+                  LINES: 20->1|25->1|27->3|27->3|27->3|28->4|58->34
                   -- GENERATED --
               */

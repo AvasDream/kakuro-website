@@ -12,7 +12,7 @@
 /*main.scala.html seite*/
 /*------------------------------------------------------------------------------*/
 #rule {
-    background-color: chartreuse;
+    background-color: LightGray;
     background-image: url("../images/1378_background.jpg");
     margin-left: 20%;
     margin-right: 20%;
@@ -52,4 +52,20 @@
 
 .td-condensed{
     font-size: 5px;
+}
+
+.provider\ facebook {
+    display: none;
+}
+.provider\ twitter {
+    display: none;
+}
+.provider\ vk {
+    display: none;
+}
+.provider\ xing {
+    display: none;
+}
+.provider\ yahoo {
+    display: none;
 }

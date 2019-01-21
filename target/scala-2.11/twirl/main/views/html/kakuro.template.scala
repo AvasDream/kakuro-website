@@ -71,7 +71,7 @@ object kakuro_Scope0 {
 object kakuro extends kakuro_Scope0.kakuro
 /*
                   -- GENERATED --
-                  DATE: Fri Jan 18 18:58:41 CET 2019
+                  DATE: Mon Jan 21 13:08:40 CET 2019
                   SOURCE: C:/Users/Tyrell Wellick/git/kakuro-website/app/views/kakuro.scala.html
                   HASH: 1bedbbf78197a16aacf5106ad6bdf35c22091d73
                   MATRIX: 556->1|727->77|757->82|807->124|846->126|876->130|2228->1452

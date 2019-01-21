@@ -2,18 +2,26 @@ var GRID_SIZE = 20;
 var DIFFICULTY = 10;
 var SCREEN_SIZE;
 var GAMEOVER = true;
-
+var DEBUG = true;
+var FIRE=false;
 var snake;
 var food;
 var scl = 20;
 
+var fireworks = [];
+var gravity;
+
 function setup() {
-  SCREEN_SIZE = createVector(650 , 650);
+  SCREEN_SIZE = createVector(640 , 640);
   var canvas = createCanvas(SCREEN_SIZE.x, SCREEN_SIZE.y);
   canvas.parent("snakeCanvas");
   frameRate(DIFFICULTY);
+  colorMode(RGB);
+  stroke(0);
+  strokeWeight(0);
   snake = new Snake();
   setFood();
+
 }
 
 function startGame() {
@@ -24,7 +32,9 @@ function startGame() {
 }
 
 function draw() {
+
   background(0);
+
   if (!GAMEOVER) {
     snake.death();
     snake.update();
@@ -34,10 +44,7 @@ function draw() {
     }
     fill(0, 102, 34);
     rect(food.x, food.y, scl, scl);
-  } else {
-    background(0);
-  }
-
+  } 
 }
 
 function setFood(){
@@ -82,6 +89,7 @@ function Snake(){
                 GAMEOVER = true;
                 this.total = 0;
                 this.tail=[];
+                FIRE=true;
             }
         }
     }
@@ -128,4 +136,26 @@ $('document').ready(function(){
           e.preventDefault();
       }
   }, false);
+
+  $(".radio").change(function () {
+    setLevel();
+  });
 });
+
+
+function setLevel() {
+    var level = document.querySelector('input[name = "optradio"]:checked').value;
+    if(DEBUG) console.log(level);
+    switch (level) {
+      case "Level 1":
+        DIFFICULTY = 7;
+        break;
+      case "Level 2":
+        DIFFICULTY = 15;
+        break;
+      case "Level 3":
+        DIFFICULTY = 25;
+        break;
+      default:
+    }
+}

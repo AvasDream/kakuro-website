@@ -92,3 +92,20 @@ a {
 .btn-lg {
     font-size: 18px;
 }
+
+.facebook {
+  display: none;
+}
+
+.twitter {
+  display: none;
+}
+.vk {
+  display: none;
+}
+.xing {
+  display: none;
+}
+.yahoo {
+  display: none;
+}

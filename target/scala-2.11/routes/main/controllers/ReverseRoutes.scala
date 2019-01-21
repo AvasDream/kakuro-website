@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Tyrell Wellick/git/kakuro-website/conf/routes
-// @DATE:Sat Jan 19 18:31:49 CET 2019
+// @DATE:Mon Jan 21 14:21:29 CET 2019
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
