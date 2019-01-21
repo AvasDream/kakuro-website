@@ -53,3 +53,19 @@
 .td-condensed{
     font-size: 5px;
 }
+
+.provider\ facebook {
+    display: none;
+}
+.provider\ twitter {
+    display: none;
+}
+.provider\ vk {
+    display: none;
+}
+.provider\ xing {
+    display: none;
+}
+.provider\ yahoo {
+    display: none;
+}

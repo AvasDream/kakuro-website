@@ -7,6 +7,8 @@ var snake;
 var food;
 var scl = 20;
 
+
+
 function setup() {
   SCREEN_SIZE = createVector(640 , 640);
   var canvas = createCanvas(SCREEN_SIZE.x, SCREEN_SIZE.y);
@@ -128,4 +130,12 @@ $('document').ready(function(){
           e.preventDefault();
       }
   }, false);
+
+  $(".radio").change(function () {
+    function setLevel() {
+        var level = document.querySelector('input[name = "optradio"]:checked').value;
+        console.log(level);
+        
+    }
+  }
 });
