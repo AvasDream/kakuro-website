@@ -17,6 +17,7 @@ Frontend:
 
 
 Backend:
+
 [Scala](https://www.scala-lang.org/)
 
 [PlayFramework](https://www.playframework.com/)
